@@ -2,25 +2,25 @@ const { Schema, model } = require("mongoose");
 
 const userSchema = new Schema(
   {
+    email: 
+    { type: String,
+      unique: true,
+      required: true 
+    },
+    password: 
+    { type: String,
+      required: true 
+    },
+    name: 
+    { type: String, 
+      required: true 
+    },
     username: {
       type: String,
       trim: true,
       required: true,
       unique: true
-    },
-
-    name: {
-      type: String,
-      trim: true,
-      required: true,
-
-    },
-    email: {
-      type: String,
-      required: true,
-      unique: true,
-      lowercase: true,
-      trim: true
+      //   trim: true,
     },
     profileImg: {
       type: String
@@ -33,10 +33,6 @@ const userSchema = new Schema(
       type: String,
       enum: ["user", "admin"],
       default: "user"
-    },
-    password: {
-      type: String,
-      required: true
     },
     playlist: [{
       type: Schema.Types.ObjectId,
